@@ -1,0 +1,125 @@
+.dashboard-collapsed {
+  width: 90px;
+  animation: dashboardCollapsing 0.3s ease-in-out;
+}
+
+.arrowRight {
+  transform: rotate(180deg);
+  transition: 0.3s;
+}
+
+.arrowLeft {
+  transform: rotate(0);
+  transition: 0.3s;
+}
+
+@keyframes dashboardCollapsing {
+  0% {
+    width: 300px;
+  }
+  100% {
+    width: 90px;
+  }
+}
+
+.dashboard-uncollapsed {
+  width: 300px;
+  animation: dashboardUncollapsing 0.3s ease-in-out;
+}
+
+@keyframes dashboardUncollapsing {
+  0% {
+    width: 90px;
+  }
+  100% {
+    width: 300px;
+  }
+}
+
+.title-fade {
+  opacity: 0;
+  display: none;
+  animation: titleFading 0.3s ease-in-out;
+}
+
+@keyframes titleFading {
+  0% {
+    opacity: 1;
+    display: block;
+  }
+  50% {
+    opacity: 0;
+    display: none;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
+
+.title-unfade {
+  opacity: 1;
+  display: block;
+  animation: titleUnfading 0.3s ease-in-out;
+}
+
+@keyframes titleUnfading {
+  0% {
+    opacity: 0;
+    display: none;
+  }
+  80% {
+    opacity: 1;
+    display: block;
+  }
+  100% {
+    opacity: 1;
+    display: block;
+  }
+}
+
+.icon-centered {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: iconCentered 0.4s ease-in-out;
+}
+
+@keyframes iconCentered {
+  0% {
+    width: 16px;
+  }
+  90% {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  100% {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.icon-uncentered {
+  width: 16px;
+  animation: iconUncentered 0.1s ease-in-out;
+}
+
+@keyframes iconUncentered {
+  0% {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  90% {
+    width: 16px;
+  }
+  100% {
+    width: 16px;
+  }
+}

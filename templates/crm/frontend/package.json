@@ -1,0 +1,51 @@
+{
+  "name": "crm_template",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@ant-design/icons": "^5.6.1",
+    "@tailwindcss/vite": "^4.0.7",
+    "@tanstack/react-query": "^5.66.0",
+    "antd": "^5.24.0",
+    "autoprefixer": "^10.4.20",
+    "axios": "^1.7.9",
+    "dayjs": "^1.11.13",
+    "js-cookie": "^3.0.5",
+    "qs": "^6.14.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "react-icons": "^5.4.0",
+    "react-router": "6.29.0",
+    "react-router-dom": "6.29.0",
+    "reflect-metadata": "^0.2.2",
+    "tailwindcss": "^4.0.7",
+    "tsyringe": "^4.8.0",
+    "use-debounce": "^10.0.4",
+    "zustand": "^5.0.3"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.19.0",
+    "@types/js-cookie": "^3.0.6",
+    "@types/node": "^22.13.1",
+    "@types/qs": "^6.9.18",
+    "@types/react": "18.3.3",
+    "@types/react-dom": "18.3.0",
+    "@types/react-router": "^5.1.20",
+    "@types/react-router-dom": "^5.3.3",
+    "@vitejs/plugin-react-swc": "^3.5.0",
+    "eslint": "^9.19.0",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-plugin-react-refresh": "^0.4.18",
+    "globals": "^15.14.0",
+    "typescript": "~5.7.2",
+    "typescript-eslint": "^8.22.0",
+    "vite": "^6.1.0"
+  }
+}
