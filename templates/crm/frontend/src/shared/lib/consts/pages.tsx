@@ -1,6 +1,13 @@
 import { FaRegFolder } from "react-icons/fa";
+import { LuRocket } from "react-icons/lu";
 
 export const PAGES = [
+  {
+    key: "/getting-started",
+    path: "/getting-started",
+    label: "Getting Started",
+    icon: LuRocket,
+  },
   {
     key: "/module",
     path: "/module",
