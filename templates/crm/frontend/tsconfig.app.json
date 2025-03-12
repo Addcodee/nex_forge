@@ -27,7 +27,6 @@
       "shared/*": ["shared/*"],
       "components/*": ["components/*"],
       "auth/*": ["modules/auth/*"],
-      "clients/*": ["modules/clients/*"],
       "module/*": ["modules/module/*"]
     }
   },

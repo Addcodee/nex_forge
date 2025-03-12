@@ -12,15 +12,18 @@ import { useGlobalStore } from "shared/lib/store/useGlobalStore";
 import { useGetModules } from "module/hooks/useGetModules";
 import { useModuleStore } from "module/store/useModuleStore";
 import { OPTIONS, SORT_OPTIONS } from "module/consts/options";
-import { OrderType } from "shared/lib/types/OrderType";
+import { OrderingType } from "shared/lib/types/OrderingType";
 
 const ModulePage = () => {
   const [isCreating, setIsCreating] = useState<boolean>(false);
   const [currentId, setCurrentId] = useState<string | null>(null);
   const [page, setPage] = useState<number>(1);
-  const [sort, setSort] = useState<{ sort: ModuleSortType; order: OrderType }>({
+  const [sort, setSort] = useState<{
+    sort: ModuleSortType;
+    order: OrderingType;
+  }>({
     sort: ModuleSortType.CREATED_AT,
-    order: OrderType.ASC,
+    order: OrderingType.ASC,
   });
   const [search, setSearch] = useState<string>("");
 
@@ -106,6 +109,7 @@ const ModulePage = () => {
         handleClose={() => setIsCreating(false)}
       />
       <ModuleDetails
+        id={currentId}
         open={currentId !== null}
         handleClose={() => setCurrentId(null)}
       />

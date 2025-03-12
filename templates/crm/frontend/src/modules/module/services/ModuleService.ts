@@ -8,7 +8,7 @@ import {
 import "reflect-metadata";
 import { BaseApi } from "shared/lib/api/BaseApi";
 import ErrorMessages from "shared/lib/consts/errors";
-import { OrderType } from "shared/lib/types/OrderType";
+import { OrderType } from "shared/lib/types/OrderingType";
 import { ResponseType, StatusType } from "shared/lib/types/StatusType";
 import { container } from "tsyringe";
 

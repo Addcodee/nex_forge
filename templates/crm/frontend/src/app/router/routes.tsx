@@ -1,5 +1,4 @@
 import LoginPage from "auth/pages";
-import ClientsPage from "clients/pages";
 import ModulePage from "module/pages";
 
 interface IRoute {
@@ -11,10 +10,7 @@ interface IRoutes extends IRoute {
   children?: IRoute[];
 }
 
-const INIT_ROUTES: IRoutes[] = [
-  { path: "/clients", element: <ClientsPage /> },
-  { path: "/module", element: <ModulePage /> },
-];
+const INIT_ROUTES: IRoutes[] = [{ path: "/module", element: <ModulePage /> }];
 
 const AUTH_ROUTES: IRoutes[] = [{ path: "/login", element: <LoginPage /> }];
 
