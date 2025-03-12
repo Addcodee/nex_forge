@@ -21,7 +21,7 @@ const AppRouter = () => {
           </ProtectedRoute>
         }
       >
-        <Route element={<Navigate to="/clients" />} index />
+        <Route element={<Navigate to="/getting-started" />} index />
         {router.INIT_ROUTES.map(({ path, element }) => (
           <Route key={path} element={element} path={path} />
         ))}

@@ -1,5 +1,6 @@
 import LoginPage from "auth/pages";
 import ModulePage from "module/pages";
+import GettingStartedPage from "gettingStarted/pages";
 
 interface IRoute {
   path: string;
@@ -10,7 +11,10 @@ interface IRoutes extends IRoute {
   children?: IRoute[];
 }
 
-const INIT_ROUTES: IRoutes[] = [{ path: "/module", element: <ModulePage /> }];
+const INIT_ROUTES: IRoutes[] = [
+  { path: "/module", element: <ModulePage /> },
+  { path: "/getting-started", element: <GettingStartedPage /> },
+];
 
 const AUTH_ROUTES: IRoutes[] = [{ path: "/login", element: <LoginPage /> }];
 
