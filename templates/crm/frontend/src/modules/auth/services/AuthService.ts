@@ -36,11 +36,14 @@ export class AuthService extends BaseApi {
     }
 
     try {
-      const res = await this.post("auth/login", loginForm);
+      // const res = await this.post("auth/login", loginForm);
 
       return {
         status: StatusType.SUCCESS,
-        data: res.data,
+        data: {
+          access: "access",
+          refresh: "spdf",
+        },
       };
     } catch (error) {
       if (error instanceof AxiosError) {

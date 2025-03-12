@@ -4,8 +4,8 @@ import {
 } from "react-icons/tb";
 
 export const OPTIONS = [
-  { value: "1", label: "Дате создания" },
-  { value: "2", label: "ФИО" },
+  { value: "created_at", label: "Дате создания" },
+  { value: "title", label: "Заголовок" },
 ];
 
 export const SORT_OPTIONS = [

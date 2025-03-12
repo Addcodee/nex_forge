@@ -63,10 +63,14 @@ const Dashboard = () => {
       <div className="flex-1 flex flex-col justify-between">
         <div className="flex flex-col gap-0.5 p-4">
           {PAGES.map((item) => (
-            <Button
+            <button
+              key={item.key}
               onClick={() => navigate(item.path)}
-              type={pathname === item.path ? "primary" : "text"}
-              className={`!justify-start text-start`}
+              className={`!justify-start text-start flex items-center gap-2 p-2 rounded-lg font-medium transition-all duration-300 ${
+                item.path === pathname
+                  ? "bg-[#5856D6] text-white"
+                  : "bg-white text-black hover:bg-gray-200"
+              }`}
             >
               <div
                 className={`${
@@ -82,7 +86,7 @@ const Dashboard = () => {
               >
                 {item.label}
               </span>
-            </Button>
+            </button>
           ))}
         </div>
         <div className="p-4">

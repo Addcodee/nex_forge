@@ -1,27 +1,40 @@
 import { AxiosError } from "axios";
 import {
-  ClientDetails,
-  ClientList,
-  ClientPayload,
-} from "clients/types/ClientType";
+  ModuleDetails,
+  ModuleList,
+  ModulePayload,
+  ModuleSortType,
+} from "module/types/ModuleType";
 import "reflect-metadata";
 import { BaseApi } from "shared/lib/api/BaseApi";
 import ErrorMessages from "shared/lib/consts/errors";
+import { OrderType } from "shared/lib/types/OrderType";
 import { ResponseType, StatusType } from "shared/lib/types/StatusType";
 import { container } from "tsyringe";
 
-export class ClientService extends BaseApi {
+export class ModuleService extends BaseApi {
   constructor() {
     super();
   }
 
-  async getAll(): Promise<ResponseType<ClientList>> {
+  async getAll(
+    page: number,
+    sort: {
+      sort: ModuleSortType;
+      order: OrderType;
+    },
+    search: string
+  ): Promise<ResponseType<ModuleList>> {
     try {
-      const res = await this.get("clients/");
+      console.log(page, sort, search);
+      // const res = await this.get(`module/?page=${page}&sort=${sort.sort}&order={sort.order}&search=${search}`);
 
       return {
         status: StatusType.SUCCESS,
-        data: res.data,
+        data: {
+          count: 1,
+          results: [{ id: "unique-id", title: "Example Title" }],
+        },
       };
     } catch (error) {
       if (error instanceof AxiosError) {
@@ -38,13 +51,13 @@ export class ClientService extends BaseApi {
     }
   }
 
-  async getById(id: string): Promise<ResponseType<ClientDetails>> {
+  async getById(id: string): Promise<ResponseType<ModuleDetails>> {
     try {
-      const res = await this.get(`clients/${id}/`);
+      // const res = await this.get(`module/${id}/`);
 
       return {
         status: StatusType.SUCCESS,
-        data: res.data,
+        data: { id: id, title: "Example Title" },
       };
     } catch (error) {
       if (error instanceof AxiosError) {
@@ -62,10 +75,10 @@ export class ClientService extends BaseApi {
   }
 
   async create(
-    payload: ClientPayload
+    payload: ModulePayload
   ): Promise<ResponseType<{ success: boolean }>> {
     try {
-      await this.post("clients/", payload);
+      await this.post("module/", payload);
 
       return {
         status: StatusType.SUCCESS,
@@ -75,7 +88,7 @@ export class ClientService extends BaseApi {
       if (error instanceof AxiosError) {
         return {
           status: StatusType.ERROR,
-          error: ErrorMessages.ServerError,
+          error: `${ErrorMessages.ServerError} ${error.status}`,
         };
       }
 
@@ -88,10 +101,10 @@ export class ClientService extends BaseApi {
 
   async update(
     id: string,
-    payload: ClientPayload
+    payload: ModulePayload
   ): Promise<ResponseType<{ success: boolean }>> {
     try {
-      await this.patch(`clients/${id}/`, payload);
+      await this.patch(`module/${id}/`, payload);
 
       return {
         status: StatusType.SUCCESS,
@@ -101,7 +114,7 @@ export class ClientService extends BaseApi {
       if (error instanceof AxiosError) {
         return {
           status: StatusType.ERROR,
-          error: ErrorMessages.ServerError,
+          error: `${ErrorMessages.ServerError} ${error.status}`,
         };
       }
 
@@ -112,9 +125,9 @@ export class ClientService extends BaseApi {
     }
   }
 
-  async remove(id: string): Promise<ResponseType<ClientDetails>> {
+  async remove(id: string): Promise<ResponseType<ModuleDetails>> {
     try {
-      const res = await this.delete(`clients/${id}/`);
+      const res = await this.delete(`module/${id}/`);
 
       return {
         status: StatusType.SUCCESS,
@@ -124,7 +137,7 @@ export class ClientService extends BaseApi {
       if (error instanceof AxiosError) {
         return {
           status: StatusType.ERROR,
-          error: ErrorMessages.ServerError,
+          error: `${ErrorMessages.ServerError} ${error.status}`,
         };
       }
 
@@ -136,4 +149,4 @@ export class ClientService extends BaseApi {
   }
 }
 
-export const clientService = container.resolve(ClientService);
+export const moduleService = container.resolve(ModuleService);

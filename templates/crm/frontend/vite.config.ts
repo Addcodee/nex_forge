@@ -17,6 +17,7 @@ export default defineConfig({
       components: path.resolve(__dirname, "src/components"),
       auth: path.resolve(__dirname, "src/modules/auth"),
       clients: path.resolve(__dirname, "src/modules/clients"),
+      module: path.resolve(__dirname, "src/modules/module"),
     },
   },
 });
