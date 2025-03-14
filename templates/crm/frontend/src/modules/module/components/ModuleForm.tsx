@@ -21,6 +21,7 @@ const ModuleForm = ({ loading, handleSubmit, handleClose, values }: Props) => {
     handleClose();
     if (values) {
       form.setFieldValue("title", values.title);
+      handleClose();
     }
   };
 

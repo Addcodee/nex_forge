@@ -39,7 +39,8 @@ const ClientDetails = ({ open, handleClose, id }: Props) => {
     const res = await deleteAsync(id);
 
     if (res.status === StatusType.SUCCESS) {
-      return contextApi.success(SuccessMessages.Delete);
+      contextApi.success(SuccessMessages.Delete);
+      handleClose();
     }
 
     if (res.status === StatusType.ERROR) {
@@ -51,7 +52,8 @@ const ClientDetails = ({ open, handleClose, id }: Props) => {
     const res = await updateAsync(payload);
 
     if (res.status === StatusType.SUCCESS) {
-      return contextApi.success(SuccessMessages.Update);
+      contextApi.success(SuccessMessages.Update);
+      handleClose();
     }
 
     if (res.status === StatusType.ERROR) {

@@ -19,7 +19,8 @@ const CreateModule = ({ open, handleClose }: Props) => {
     const res = await mutateAsync(payload);
 
     if (res.status === StatusType.SUCCESS) {
-      return contextApi.success(SuccessMessages.Create);
+      contextApi.success(SuccessMessages.Create);
+      handleClose();
     }
 
     if (res.status === StatusType.ERROR) {

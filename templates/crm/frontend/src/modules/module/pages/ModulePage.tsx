@@ -1,4 +1,4 @@
-import { Divider, TableColumnsType } from "antd";
+import { Divider, message, TableColumnsType } from "antd";
 import ModuleDetails from "module/components/ModuleDetails";
 import CreateModule from "module/components/CreateModule";
 import { ModuleItem, ModuleSortType } from "module/types/ModuleType";
@@ -13,10 +13,15 @@ import { useGetModules } from "module/hooks/useGetModules";
 import { useModuleStore } from "module/store/useModuleStore";
 import { OPTIONS, SORT_OPTIONS } from "module/consts/options";
 import { OrderingType } from "shared/lib/types/OrderingType";
+import { useDeleteManyModules } from "module/hooks/useDeleteManyModules";
+import SuccessMessages from "shared/lib/consts/success";
 
 const ModulePage = () => {
+  const [contextApi, contextHolder] = message.useMessage();
+  const { setDashboardHidden } = useGlobalStore();
   const [isCreating, setIsCreating] = useState<boolean>(false);
   const [currentId, setCurrentId] = useState<string | null>(null);
+  const { mutateAsync, isPending: deletePending } = useDeleteManyModules();
   const [page, setPage] = useState<number>(1);
   const [sort, setSort] = useState<{
     sort: ModuleSortType;
@@ -26,10 +31,10 @@ const ModulePage = () => {
     order: OrderingType.ASC,
   });
   const [search, setSearch] = useState<string>("");
-
-  const { isPending } = useGetModules(page, sort, search);
+  const [selectedItems, setSelectedItems] = useState<string[]>([]);
+  const { isPending } = useGetModules({ page, sort, search });
   const { modules } = useModuleStore();
-  const { setDashboardHidden } = useGlobalStore();
+
   const columns: TableColumnsType<ModuleItem> = [
     {
       key: "title",
@@ -47,10 +52,29 @@ const ModulePage = () => {
     },
   ];
 
-  console.log(search);
+  const handleDelete = async () => {
+    const res = await mutateAsync(selectedItems);
+
+    if (res.length === 0) {
+      contextApi.success(SuccessMessages.Delete);
+      setSelectedItems([]);
+    } else {
+      contextApi.error(
+        `Ошибка при удалении следующих объектов: ${res.join(", ")}`
+      );
+    }
+  };
+
+  const rowSelection = {
+    selectedRowKeys: selectedItems,
+    onChange: (selectedRowKeys: React.Key[]) => {
+      setSelectedItems(selectedRowKeys as string[]);
+    },
+  };
 
   return (
     <>
+      {contextHolder}
       <div className="flex flex-col gap-4 p-4">
         <div className="bg-white p-5 flex-1 rounded-lg flex flex-col">
           <div className="flex justify-between sm:items-center gap-2">
@@ -61,6 +85,15 @@ const ModulePage = () => {
                 className="!font-medium"
               >
                 Добавить module
+              </Button>
+              <Button
+                loading={deletePending}
+                onClick={handleDelete}
+                disabled={selectedItems.length === 0}
+                className="!font-medium"
+                danger
+              >
+                Удалить выбранное
               </Button>
             </div>
 
@@ -90,6 +123,7 @@ const ModulePage = () => {
           </div>
         </div>
         <Table
+          rowSelection={rowSelection}
           rowKey={(rec) => rec.id}
           pagination={{
             current: page,

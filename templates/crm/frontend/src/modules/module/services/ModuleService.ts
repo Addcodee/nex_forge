@@ -6,34 +6,61 @@ import {
   ModuleSortType,
 } from "module/types/ModuleType";
 import "reflect-metadata";
-import { BaseApi } from "shared/lib/api/BaseApi";
+import { PrivateApi } from "shared/lib/api/PrivateApi";
 import ErrorMessages from "shared/lib/consts/errors";
-import { OrderType } from "shared/lib/types/OrderingType";
+import { OrderingType } from "shared/lib/types/OrderingType";
 import { ResponseType, StatusType } from "shared/lib/types/StatusType";
 import { container } from "tsyringe";
 
-export class ModuleService extends BaseApi {
+export class ModuleService extends PrivateApi {
   constructor() {
     super();
   }
 
-  async getAll(
-    page: number,
-    sort: {
+  async getAll(options: {
+    page?: number;
+    sort?: {
       sort: ModuleSortType;
-      order: OrderType;
-    },
-    search: string
-  ): Promise<ResponseType<ModuleList>> {
+      order: OrderingType;
+    };
+    search?: string;
+  }): Promise<ResponseType<ModuleList>> {
     try {
-      console.log(page, sort, search);
-      // const res = await this.get(`module/?page=${page}&sort=${sort.sort}&order={sort.order}&search=${search}`);
+      // Собираем параметры запроса только если они заданы
+      const params: string[] = [];
+
+      if (options.page !== undefined) {
+        params.push(`page=${options.page}`);
+      }
+
+      if (options.sort?.sort !== undefined) {
+        params.push(`sort=${options.sort.sort}`);
+      }
+
+      if (options.sort?.order !== undefined) {
+        params.push(`order=${options.sort.order}`);
+      }
+
+      if (options.search) {
+        // Кодирование строки поиска для корректной передачи в URL
+        params.push(`search=${encodeURIComponent(options.search)}`);
+      }
+
+      // Формируем итоговую строку запроса (если есть параметры)
+      const queryString = params.length ? `?${params.join("&")}` : "";
+
+      // Пример запроса (раскомментируйте и адаптируйте по необходимости)
+      // const res = await this.get(`module/${queryString}`);
 
       return {
         status: StatusType.SUCCESS,
         data: {
           count: 1,
-          results: [{ id: "unique-id", title: "Example Title" }],
+          results: [
+            { id: "unique-id-1", title: "Example Title 1" },
+            { id: "unique-id-2", title: "Example Title 2" },
+            { id: "unique-id-3", title: "Example Title 3" },
+          ],
         },
       };
     } catch (error) {
