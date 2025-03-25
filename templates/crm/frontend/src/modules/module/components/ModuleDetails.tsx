@@ -21,7 +21,7 @@ type Props = {
   id: string | null;
 };
 
-const ClientDetails = ({ open, handleClose, id }: Props) => {
+const ModuleDetails = ({ open, handleClose, id }: Props) => {
   const { isPending: detailsPending } = useGetModuleDetails(id);
   const { moduleDetails } = useModuleStore();
   const [isEditing, setIsEditing] = useState<boolean>(false);
@@ -102,4 +102,4 @@ const ClientDetails = ({ open, handleClose, id }: Props) => {
   );
 };
 
-export default ClientDetails;
+export default ModuleDetails;
