@@ -1,4 +1,4 @@
-import Modal from "components/Modal";
+import Modal from "components/modal";
 import ModuleForm from "./ModuleForm";
 import { useCreateModule } from "module/hooks/useCreateModule";
 import { ModulePayload } from "module/types/ModuleType";

@@ -1,15 +1,15 @@
 import "reflect-metadata";
 import { container } from "tsyringe";
 import { BaseApi } from "./BaseApi";
-import { TOKENS } from "../consts/consts";
-import { Tokens } from "../types/Tokens";
-import { setCookies } from "../cookies/cookies";
+import { Tokens } from "shared/lib/types";
+import { getCookies, setCookies } from "shared/lib/cookies";
 
 export class PrivateApi extends BaseApi {
   constructor() {
     super();
 
     this.axios.interceptors.request.use(async (config) => {
+      const TOKENS = getCookies<Tokens>("TKN");
       if (!TOKENS) {
         window.location.href = "/login";
         return Promise.reject("No tokens found, redirecting to login");
@@ -48,6 +48,7 @@ export class PrivateApi extends BaseApi {
   }
 
   private async refreshToken(): Promise<Tokens | null> {
+    const TOKENS = getCookies<Tokens>("TKN");
     try {
       if (TOKENS === undefined) {
         window.location.href = "/login";

@@ -3,7 +3,7 @@ import router from "./routes";
 import { JSX } from "react";
 import { getCookies } from "shared/lib/cookies/cookies";
 import { Tokens } from "shared/lib/types/Tokens";
-import AppLayout from "app/layouts/AppLayout";
+import AppLayout from "app/layouts";
 
 const ProtectedRoute = ({ children }: { children: JSX.Element }) => {
   const isLoggedIn = getCookies<Tokens>("TKN") !== undefined;

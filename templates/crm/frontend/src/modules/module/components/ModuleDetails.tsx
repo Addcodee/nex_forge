@@ -1,7 +1,7 @@
-import DeleteButton from "components/DeleteButton";
-import EditButton from "components/EditButton";
-import Modal from "components/Modal";
-import ReviewButton from "components/ReviewButton";
+import DeleteButton from "components/delete-button/DeleteButton";
+import EditButton from "components/edit-button/EditButton";
+import Modal from "components/modal";
+import ReviewButton from "components/review-button/ReviewButton";
 import { useGetModuleDetails } from "module/hooks/useGetModuleDetails";
 import { useModuleStore } from "module/store/useModuleStore";
 import { useState } from "react";

@@ -18,6 +18,7 @@ export default defineConfig({
       auth: path.resolve(__dirname, "src/modules/auth"),
       gettingStarted: path.resolve(__dirname, "src/modules/gettingStarted"),
       module: path.resolve(__dirname, "src/modules/module"),
+      module_page: path.resolve(__dirname, "src/modules/module_page"),
     },
   },
 });

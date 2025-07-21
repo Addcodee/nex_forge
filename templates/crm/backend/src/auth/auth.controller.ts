@@ -22,7 +22,7 @@ export class AuthController {
 
     @Public()
     @Post('refresh')
-    async refreshToken(@Body() refresh: string, @Res() res: Response) {
+    async refreshToken(@Body('refresh') refresh: string, @Res() res: Response) {
         if (!refresh) {
             throw new UnauthorizedException('Token is not defined');
         }

@@ -3,3 +3,21 @@
 button {
   cursor: pointer;
 }
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+.ant-form-item-required::before {
+  display: none !important;
+}
+
+.ant-form-item-required::after {
+  display: none !important;
+}
+
+.ant-form-item-label {
+  padding-bottom: 4px !important;
+  font-size: 12px !important;
+  font-weight: 500;
+}

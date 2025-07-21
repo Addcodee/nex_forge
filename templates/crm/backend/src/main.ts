@@ -1,5 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
+import { adminSeed } from 'prisma/seeds/admin/seed';
 
 async function bootstrap() {
     const app = await NestFactory.create(AppModule);
@@ -23,14 +24,13 @@ async function bootstrap() {
 
     app.setGlobalPrefix('/api/v1/');
     if (env === 'development') {
-        await app.listen(port, host, () => {
-            console.log(__dirname);
-
-            console.log(`SERVER STARTED ON PORT ${port}`);
-            console.log(`Access it locally: http://192.168.1.8:${port}`);
+        await app.listen(port, host, async () => {
+            await adminSeed();
         });
     } else if (env === 'production') {
-        await app.listen(port);
+        await app.listen(port, host, async () => {
+            await adminSeed();
+        });
     } else {
         throw new Error('Environment is not defined');
     }

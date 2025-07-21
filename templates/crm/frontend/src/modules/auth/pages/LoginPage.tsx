@@ -1,7 +1,7 @@
 import { Form, Input } from "antd";
 import { useLogin } from "auth/hooks/useLogin";
 import { LoginForm } from "auth/types/LoginForm";
-import Button from "components/Button";
+import Button from "components/button/Button";
 import ValidateMessages from "shared/lib/consts/validates";
 import { StatusType } from "shared/lib/types/StatusType";
 

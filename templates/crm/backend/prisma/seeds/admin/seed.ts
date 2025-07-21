@@ -3,7 +3,7 @@ import * as bcrypt from 'bcrypt';
 
 const prisma = new PrismaClient();
 
-async function main() {
+export async function adminSeed() {
     const adminEmail = process.env.ADMIN;
     const adminPassword = process.env.ADMIN_PASSWORD;
 
@@ -26,12 +26,3 @@ async function main() {
         console.log('Admin already exists');
     }
 }
-
-main()
-    .catch((e) => {
-        console.error(e);
-        process.exit(1);
-    })
-    .finally(async () => {
-        await prisma.$disconnect();
-    });

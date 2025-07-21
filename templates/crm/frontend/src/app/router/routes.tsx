@@ -1,6 +1,11 @@
 import LoginPage from "auth/pages";
 import ModulePage from "module/pages";
 import GettingStartedPage from "gettingStarted/pages";
+import {
+  ModuleCreatePage,
+  ModuleEditPage,
+  ModuleListPage,
+} from "module_page/pages";
 
 interface IRoute {
   path: string;
@@ -14,6 +19,18 @@ interface IRoutes extends IRoute {
 const INIT_ROUTES: IRoutes[] = [
   { path: "/module", element: <ModulePage /> },
   { path: "/getting-started", element: <GettingStartedPage /> },
+  {
+    path: "/module/list",
+    element: <ModuleListPage />,
+  },
+  {
+    path: "/module/create",
+    element: <ModuleCreatePage />,
+  },
+  {
+    path: "/module/edit/:id",
+    element: <ModuleEditPage />,
+  },
 ];
 
 const AUTH_ROUTES: IRoutes[] = [{ path: "/login", element: <LoginPage /> }];

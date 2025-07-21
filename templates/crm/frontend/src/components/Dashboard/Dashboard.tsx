@@ -4,9 +4,9 @@ import { LuArrowLeftToLine, LuLogOut } from "react-icons/lu";
 import { Button } from "antd";
 import { useLocation, useNavigate } from "react-router";
 import { PAGES } from "shared/lib/consts/pages";
-import { useGlobalStore } from "shared/lib/store/useGlobalStore";
+import { useGlobalStore } from "shared/lib/store";
 import { logout } from "shared/lib/functions/logout";
-import { useCurrentWidth } from "shared/lib/hooks/useCurrentWidth";
+import { useCurrentWidth } from "shared/lib/hooks";
 
 const Dashboard = () => {
   const {

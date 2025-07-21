@@ -1,4 +1,4 @@
-import Button from "components/Button";
+import Button from "components/button/Button";
 import { LuMenu } from "react-icons/lu";
 import { useGlobalStore } from "shared/lib/store/useGlobalStore";
 

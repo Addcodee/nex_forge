@@ -28,7 +28,8 @@
       "components/*": ["components/*"],
       "auth/*": ["modules/auth/*"],
       "gettingStarted/*": ["modules/gettingStarted/*"],
-      "module/*": ["modules/module/*"]
+      "module/*": ["modules/module/*"],
+      "module_page/*": ["modules/module_page/*"]
     }
   },
   "include": ["src"]

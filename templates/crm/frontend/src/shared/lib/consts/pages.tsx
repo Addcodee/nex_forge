@@ -14,4 +14,11 @@ export const PAGES = [
     label: "Модуль",
     icon: FaRegFolder,
   },
+
+  {
+    key: "/module/list",
+    path: "/module/list",
+    label: "Модуль страница",
+    icon: FaRegFolder,
+  },
 ];

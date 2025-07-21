@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import AppRouter from "./router/AppRouter";
+import AppRouter from "./router";
 import { Spin } from "antd";
 import { FaSpinner } from "react-icons/fa";
 
