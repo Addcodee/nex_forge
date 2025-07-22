@@ -3,7 +3,7 @@ import { ModuleForm } from "module_page/components";
 import { message } from "antd";
 import { useForm } from "antd/es/form/Form";
 
-import { useCreateModule } from "../../module/hooks/useCreateModule";
+import { useCreateModule } from "module_page/hooks/useCreateModule";
 
 import { SaveLoadingType, StatusType } from "shared/lib/types";
 import { ModulePayload } from "module_page/types/ModuleType";
