@@ -4,13 +4,13 @@ import { useModuleStore } from "module/store/useModuleStore";
 import ErrorMessages from "shared/lib/consts/errors";
 import { StatusType } from "shared/lib/types/StatusType";
 
-export const useGetModuleDetails = (id: string | undefined) => {
+export const useGetModuleDetails = (id: string | null) => {
   const { setModuleDetails } = useModuleStore();
 
   return useQuery({
     queryKey: [`module-list-${id}`],
     queryFn: async () => {
-      if (!id) {
+      if (id === null) {
         return {
           status: StatusType.ERROR,
           error: ErrorMessages.NoIdFound,

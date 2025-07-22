@@ -1,9 +1,12 @@
-import { Button, Form, Input } from "antd";
+import { Button, Form, FormInstance, Input } from "antd";
 import { ModulePayload } from "module/types/ModuleType";
 import { useEffect } from "react";
 
 type Props = {
-  handleSubmit: (payload: ModulePayload) => void;
+  handleSubmit: (
+    payload: ModulePayload,
+    form?: FormInstance<ModulePayload>
+  ) => void;
   loading: boolean;
   handleClose: () => void;
   values?: ModulePayload | null;
@@ -14,7 +17,7 @@ const ModuleForm = ({ loading, handleSubmit, handleClose, values }: Props) => {
 
   const onFinish = async (values: ModulePayload) => {
     // Значения формы уже прошли валидацию
-    handleSubmit(values);
+    handleSubmit(values, form);
   };
 
   const cancel = () => {

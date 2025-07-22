@@ -54,6 +54,7 @@ const ModuleDetails = ({ open, handleClose, id }: Props) => {
     if (res.status === StatusType.SUCCESS) {
       contextApi.success(SuccessMessages.Update);
       handleClose();
+      setIsEditing(false);
     }
 
     if (res.status === StatusType.ERROR) {

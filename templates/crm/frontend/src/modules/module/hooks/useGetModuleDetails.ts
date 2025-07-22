@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
-import { moduleService } from "module/services/ModuleService";
-import { useModuleStore } from "module/store/useModuleStore";
+import { moduleService } from "module_page/services/ModuleService";
+import { useModuleStore } from "module_page/store/useModuleStore";
 import ErrorMessages from "shared/lib/consts/errors";
 import { StatusType } from "shared/lib/types/StatusType";
 

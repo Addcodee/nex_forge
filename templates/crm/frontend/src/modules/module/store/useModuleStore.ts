@@ -1,24 +1,26 @@
-import { ModuleDetails, ModuleList } from "module/types/ModuleType";
+import { ModuleDetails, ModuleList } from "module_page/types/ModuleType";
 import { create } from "zustand";
 
 type Details = ModuleDetails | null;
 
 interface Store {
-  modules: ModuleList;
-  setModules: (value: ModuleList | ((value: ModuleList) => ModuleList)) => void;
+  moduleList: ModuleList;
+  setModuleList: (
+    value: ModuleList | ((value: ModuleList) => ModuleList)
+  ) => void;
 
   moduleDetails: ModuleDetails | null;
   setModuleDetails: (value: Details | ((value: Details) => Details)) => void;
 }
 
 export const useModuleStore = create<Store>()((set) => ({
-  modules: {
+  moduleList: {
     count: 0,
     results: [],
   },
-  setModules: (value) => {
+  setModuleList: (value) => {
     set((state) => ({
-      modules: typeof value === "function" ? value(state.modules) : value,
+      moduleList: typeof value === "function" ? value(state.moduleList) : value,
     }));
   },
 

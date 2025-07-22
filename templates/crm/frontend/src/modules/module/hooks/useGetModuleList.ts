@@ -1,11 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
-import { moduleService } from "module/services/ModuleService";
-import { useModuleStore } from "module/store/useModuleStore";
-import { ModuleSortType } from "module/types/ModuleType";
+import { moduleService } from "module_page/services/ModuleService";
+import { useModuleStore } from "module_page/store/useModuleStore";
+import { ModuleSortType } from "module_page/types/ModuleType";
 import { OrderingType } from "shared/lib/types/OrderingType";
 import { StatusType } from "shared/lib/types/StatusType";
 
-export const useGetModules = (options: {
+export const useGetModuleList = (options: {
   page?: number;
   sort?: {
     sort: ModuleSortType;
@@ -13,14 +13,14 @@ export const useGetModules = (options: {
   };
   search?: string;
 }) => {
-  const { setModules } = useModuleStore();
+  const { setModuleList } = useModuleStore();
   return useQuery({
     queryKey: ["module-list", options?.page, options?.sort, options?.search],
     queryFn: async () => {
       const res = await moduleService.getAll(options);
 
       if (res.status === StatusType.SUCCESS) {
-        setModules(res.data);
+        setModuleList(res.data);
       }
 
       return res;

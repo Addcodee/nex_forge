@@ -2,7 +2,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { moduleService } from "module/services/ModuleService";
 import { StatusType } from "shared/lib/types/StatusType";
 
-export const useDeleteManyModules = () => {
+export const useDeleteManyModuleItems = () => {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: async (ids: string[]) => {

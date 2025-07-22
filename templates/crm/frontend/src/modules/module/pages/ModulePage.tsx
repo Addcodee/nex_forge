@@ -9,11 +9,11 @@ import Table from "components/table";
 import { useState } from "react";
 import { LuMenu } from "react-icons/lu";
 import { useGlobalStore } from "shared/lib/store/useGlobalStore";
-import { useGetModules } from "module/hooks/useGetModules";
+import { useGetModuleList } from "module/hooks/useGetModuleList";
 import { useModuleStore } from "module/store/useModuleStore";
 import { OPTIONS, SORT_OPTIONS } from "module/consts/options";
 import { OrderingType } from "shared/lib/types/OrderingType";
-import { useDeleteManyModules } from "module/hooks/useDeleteManyModules";
+import { useDeleteManyModuleItems } from "module/hooks/useDeleteManyModuleItems";
 import SuccessMessages from "shared/lib/consts/success";
 
 const ModulePage = () => {
@@ -21,7 +21,7 @@ const ModulePage = () => {
   const { setDashboardHidden } = useGlobalStore();
   const [isCreating, setIsCreating] = useState<boolean>(false);
   const [currentId, setCurrentId] = useState<string | null>(null);
-  const { mutateAsync, isPending: deletePending } = useDeleteManyModules();
+  const { mutateAsync, isPending: deletePending } = useDeleteManyModuleItems();
   const [page, setPage] = useState<number>(1);
   const [sort, setSort] = useState<{
     sort: ModuleSortType;
@@ -32,8 +32,8 @@ const ModulePage = () => {
   });
   const [search, setSearch] = useState<string>("");
   const [selectedItems, setSelectedItems] = useState<string[]>([]);
-  const { isPending } = useGetModules({ page, sort, search });
-  const { modules } = useModuleStore();
+  const { isPending } = useGetModuleList({ page, sort, search });
+  const { moduleList } = useModuleStore();
 
   const columns: TableColumnsType<ModuleItem> = [
     {
@@ -127,13 +127,13 @@ const ModulePage = () => {
           rowKey={(rec) => rec.id}
           pagination={{
             current: page,
-            total: modules.count,
+            total: moduleList.count,
             pageSize: 15,
             onChange: (value) => setPage(value),
           }}
           loading={isPending}
           columns={columns}
-          dataSource={modules.results}
+          dataSource={moduleList.results}
           scroll={{ x: 1024 }}
         />
       </div>
