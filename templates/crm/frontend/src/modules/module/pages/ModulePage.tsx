@@ -9,11 +9,11 @@ import Table from "components/table";
 import { useState } from "react";
 import { LuMenu } from "react-icons/lu";
 import { useGlobalStore } from "shared/lib/store/useGlobalStore";
-import { useGetModuleList } from "module_page/hooks/useGetModuleList";
+import { useGetModuleList } from "module/hooks/useGetModuleList";
 import { useModuleStore } from "module/store/useModuleStore";
 import { OPTIONS, SORT_OPTIONS } from "module/consts/options";
 import { OrderingType } from "shared/lib/types/OrderingType";
-import { useDeleteManyModuleItems } from "module_page/hooks/useDeleteManyModuleItems";
+import { useDeleteManyModuleItems } from "module/hooks/useDeleteManyModuleItems";
 import SuccessMessages from "shared/lib/consts/success";
 
 const ModulePage = () => {
