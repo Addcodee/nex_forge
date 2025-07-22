@@ -1,5 +1,5 @@
 import { Form, FormInstance, Input } from "antd";
-import { ModulePayload } from "module_page/types/ModuleType";
+import { ModulePayload } from "module_page/types";
 
 type Props = {
   form: FormInstance<ModulePayload>;
