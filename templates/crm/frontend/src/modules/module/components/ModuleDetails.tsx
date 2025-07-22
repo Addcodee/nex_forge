@@ -2,17 +2,17 @@ import DeleteButton from "components/delete-button/DeleteButton";
 import EditButton from "components/edit-button/EditButton";
 import Modal from "components/modal";
 import ReviewButton from "components/review-button/ReviewButton";
-import { useGetModuleDetails } from "module_page/hooks/useGetModuleDetails";
+import { useGetModuleDetails } from "module/hooks/useGetModuleDetails";
 import { useModuleStore } from "module/store/useModuleStore";
 import { useState } from "react";
 import ModuleForm from "./ModuleForm";
-import { useDeleteModule } from "module_page/hooks/useDeleteModule";
+import { useDeleteModule } from "module/hooks/useDeleteModule";
 import { message } from "antd";
 import ErrorMessages from "shared/lib/consts/errors";
 import { StatusType } from "shared/lib/types/StatusType";
 import SuccessMessages from "shared/lib/consts/success";
 import Label from "components/Label";
-import { useUpdateModule } from "module_page/hooks/useUpdateModule";
+import { useUpdateModule } from "module/hooks/useUpdateModule";
 import { ModulePayload } from "module/types/ModuleType";
 
 type Props = {
