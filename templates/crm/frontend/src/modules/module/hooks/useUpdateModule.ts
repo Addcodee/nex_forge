@@ -1,6 +1,6 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { moduleService } from "module_page/services/ModuleService";
-import { ModulePayload } from "module_page/types/ModuleType";
+import { moduleService } from "module/services/ModuleService";
+import { ModulePayload } from "module/types/ModuleType";
 import ErrorMessages from "shared/lib/consts/errors";
 import { StatusType } from "shared/lib/types/StatusType";
 

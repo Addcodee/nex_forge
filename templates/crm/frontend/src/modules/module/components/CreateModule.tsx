@@ -1,6 +1,6 @@
 import Modal from "components/modal";
 import ModuleForm from "./ModuleForm";
-import { useCreateModule } from "module/hooks/useCreateModule";
+import { useCreateModule } from "module_page/hooks/useCreateModule";
 import { ModulePayload } from "module/types/ModuleType";
 import { FormInstance, message } from "antd";
 import { StatusType } from "shared/lib/types/StatusType";

@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
-import { moduleService } from "module/services/ModuleService";
-import { useModuleStore } from "module/store/useModuleStore";
-import { ModuleSortType } from "module/types/ModuleType";
+import { moduleService } from "module_page/services/ModuleService";
+import { useModuleStore } from "module_page/store/useModuleStore";
+import { ModuleSortType } from "module_page/types/ModuleType";
 import { OrderingType } from "shared/lib/types/OrderingType";
 import { StatusType } from "shared/lib/types/StatusType";
 
