@@ -4,12 +4,12 @@ import {
   ModuleList,
   ModulePayload,
   ModuleSortType,
-} from "module/types/ModuleType";
+} from "module/types";
 import "reflect-metadata";
-import { PrivateApi } from "shared/lib/api/PrivateApi";
-import ErrorMessages from "shared/lib/consts/errors";
-import { OrderingType } from "shared/lib/types/OrderingType";
-import { ResponseType, StatusType } from "shared/lib/types/StatusType";
+import { PrivateApi } from "shared/lib/api";
+import { ErrorMessages } from "shared/lib/consts";
+import { OrderingType } from "shared/lib/types";
+import { ResponseType, StatusType } from "shared/lib/types";
 import { container } from "tsyringe";
 
 export class ModuleService extends PrivateApi {

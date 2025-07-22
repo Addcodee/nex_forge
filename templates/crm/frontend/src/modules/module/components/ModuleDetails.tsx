@@ -1,19 +1,24 @@
-import DeleteButton from "components/delete-button/DeleteButton";
-import EditButton from "components/edit-button/EditButton";
 import Modal from "components/modal";
-import ReviewButton from "components/review-button/ReviewButton";
-import { useGetModuleDetails } from "module/hooks/useGetModuleDetails";
-import { useModuleStore } from "module/store/useModuleStore";
-import { useState } from "react";
+import DeleteButton from "components/delete-button";
+import EditButton from "components/edit-button";
+import ReviewButton from "components/review-button";
 import ModuleForm from "./ModuleForm";
-import { useDeleteModule } from "module/hooks/useDeleteModule";
+import Label from "components/label";
+
 import { message } from "antd";
-import ErrorMessages from "shared/lib/consts/errors";
-import { StatusType } from "shared/lib/types/StatusType";
-import SuccessMessages from "shared/lib/consts/success";
-import Label from "components/Label";
-import { useUpdateModule } from "module/hooks/useUpdateModule";
-import { ModulePayload } from "module/types/ModuleType";
+
+import { useGetModuleDetails } from "module/hooks";
+import { useDeleteModule } from "module/hooks";
+import { useUpdateModule } from "module/hooks";
+import { useModuleStore } from "module/store";
+
+import { StatusType } from "shared/lib/types";
+import { ModulePayload } from "module/types";
+
+import { SuccessMessages } from "shared/lib/consts";
+import { ErrorMessages } from "shared/lib/consts";
+
+import { useState } from "react";
 
 type Props = {
   open: boolean;

@@ -1,9 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
-import { moduleService } from "module/services/ModuleService";
-import { useModuleStore } from "module/store/useModuleStore";
-import { ModuleSortType } from "module/types/ModuleType";
-import { OrderingType } from "shared/lib/types/OrderingType";
-import { StatusType } from "shared/lib/types/StatusType";
+import { moduleService } from "module/services";
+import { useModuleStore } from "module/store";
+import { ModuleSortType } from "module/types";
+import { OrderingType } from "shared/lib/types";
+import { StatusType } from "shared/lib/types";
 
 export const useGetModuleList = (options: {
   page?: number;

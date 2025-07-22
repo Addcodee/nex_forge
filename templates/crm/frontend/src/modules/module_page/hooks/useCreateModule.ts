@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { moduleService } from "module_page/services/ModuleService";
-import { ModulePayload } from "module_page/types/ModuleType";
-import { StatusType } from "shared/lib/types/StatusType";
+import { moduleService } from "module_page/services";
+import { ModulePayload } from "module_page/types";
+import { StatusType } from "shared/lib/types";
 
 export const useCreateModule = () => {
   const queryClient = useQueryClient();

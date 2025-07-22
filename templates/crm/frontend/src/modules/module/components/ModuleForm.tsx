@@ -1,5 +1,5 @@
 import { Button, Form, FormInstance, Input } from "antd";
-import { ModulePayload } from "module/types/ModuleType";
+import { ModulePayload } from "module/types";
 import { useEffect } from "react";
 
 type Props = {

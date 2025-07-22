@@ -3,5 +3,3 @@ export enum SuccessMessages {
   Create = "Создание прошло успешно",
   Update = "Редактирование прошло успешно",
 }
-
-export default SuccessMessages;

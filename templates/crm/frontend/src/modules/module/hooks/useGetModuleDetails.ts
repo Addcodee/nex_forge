@@ -1,8 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
-import { moduleService } from "module/services/ModuleService";
-import { useModuleStore } from "module/store/useModuleStore";
-import ErrorMessages from "shared/lib/consts/errors";
-import { StatusType } from "shared/lib/types/StatusType";
+import { moduleService } from "module/services";
+import { useModuleStore } from "module/store";
+import { ErrorMessages } from "shared/lib/consts";
+import { StatusType } from "shared/lib/types";
 
 export const useGetModuleDetails = (id: string | null) => {
   const { setModuleDetails } = useModuleStore();

@@ -1,8 +1,8 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { moduleService } from "module_page/services/ModuleService";
-import { ModulePayload } from "module_page/types/ModuleType";
-import ErrorMessages from "shared/lib/consts/errors";
-import { StatusType } from "shared/lib/types/StatusType";
+import { moduleService } from "module_page/services";
+import { ModulePayload } from "module_page/types";
+import { ErrorMessages } from "shared/lib/consts";
+import { StatusType } from "shared/lib/types";
 
 export const useUpdateModule = (id: string | null) => {
   const queryClient = useQueryClient();

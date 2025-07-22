@@ -1,4 +1,4 @@
-import { ModuleDetails, ModuleList } from "module/types/ModuleType";
+import { ModuleDetails, ModuleList } from "module/types";
 import { create } from "zustand";
 
 type Details = ModuleDetails | null;

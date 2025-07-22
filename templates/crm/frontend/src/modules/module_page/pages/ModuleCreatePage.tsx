@@ -1,11 +1,14 @@
+import Button from "components/button";
+import { ModuleForm } from "module_page/components";
 import { message } from "antd";
 import { useForm } from "antd/es/form/Form";
-import Button from "components/button/Button";
-import ModuleForm from "module_page/components/ModuleForm";
+
 import { useCreateModule } from "../../module/hooks/useCreateModule";
-import { ModulePayload } from "module_page/types/ModuleType";
-import { useState } from "react";
+
 import { SaveLoadingType, StatusType } from "shared/lib/types";
+import { ModulePayload } from "module_page/types/ModuleType";
+
+import { useState } from "react";
 
 const ModuleCreatePage = () => {
   const [form] = useForm<ModulePayload>();

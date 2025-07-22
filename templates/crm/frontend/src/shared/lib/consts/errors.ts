@@ -9,5 +9,3 @@ export enum ErrorMessages {
 
   NoIdFound = "ID не найден",
 }
-
-export default ErrorMessages;

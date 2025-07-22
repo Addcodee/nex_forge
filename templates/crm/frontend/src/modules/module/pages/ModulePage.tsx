@@ -1,20 +1,23 @@
-import { Divider, message, TableColumnsType } from "antd";
-import ModuleDetails from "module/components/ModuleDetails";
-import CreateModule from "module/components/CreateModule";
-import { ModuleItem, ModuleSortType } from "module/types/ModuleType";
-import Button from "components/button/Button";
-import SearchField from "components/search-field/SearchField";
-import Select from "components/select/Select";
+import Button from "components/button";
+import SearchField from "components/search-field";
+import Select from "components/select";
 import Table from "components/table";
-import { useState } from "react";
+import { CreateModule, ModuleDetails } from "module/components";
+
+import { Divider, message, TableColumnsType } from "antd";
 import { LuMenu } from "react-icons/lu";
-import { useGlobalStore } from "shared/lib/store/useGlobalStore";
-import { useGetModuleList } from "module/hooks/useGetModuleList";
-import { useModuleStore } from "module/store/useModuleStore";
-import { OPTIONS, SORT_OPTIONS } from "module/consts/options";
-import { OrderingType } from "shared/lib/types/OrderingType";
-import { useDeleteManyModuleItems } from "module/hooks/useDeleteManyModuleItems";
-import SuccessMessages from "shared/lib/consts/success";
+
+import { useGetModuleList, useDeleteManyModuleItems } from "module/hooks";
+import { useGlobalStore } from "shared/lib/store";
+import { useModuleStore } from "module/store";
+
+import { OrderingType } from "shared/lib/types";
+import { ModuleItem, ModuleSortType } from "module/types";
+
+import { SuccessMessages } from "shared/lib/consts";
+import { OPTIONS, SORT_OPTIONS } from "module/consts";
+
+import { useState } from "react";
 
 const ModulePage = () => {
   const [contextApi, contextHolder] = message.useMessage();

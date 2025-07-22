@@ -1,10 +1,14 @@
 import Modal from "components/modal";
 import ModuleForm from "./ModuleForm";
-import { useCreateModule } from "module/hooks/useCreateModule";
-import { ModulePayload } from "module/types/ModuleType";
+
 import { FormInstance, message } from "antd";
-import { StatusType } from "shared/lib/types/StatusType";
-import SuccessMessages from "shared/lib/consts/success";
+
+import { useCreateModule } from "module/hooks";
+
+import { ModulePayload } from "module/types";
+import { StatusType } from "shared/lib/types";
+
+import { SuccessMessages } from "shared/lib/consts";
 
 type Props = {
   open: boolean;

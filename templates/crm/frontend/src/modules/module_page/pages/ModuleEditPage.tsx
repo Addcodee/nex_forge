@@ -1,14 +1,18 @@
+import Button from "components/button";
+import { ModuleForm } from "module_page/components";
+
 import { message } from "antd";
 import { useForm } from "antd/es/form/Form";
-import Button from "components/button/Button";
-import ModuleForm from "module_page/components/ModuleForm";
-import { useCreateModule } from "../../module/hooks/useCreateModule";
-import { useGetModuleDetails } from "../../module/hooks/useGetModuleDetails";
-import { useModuleStore } from "module_page/store/useModuleStore";
-import { ModulePayload } from "module_page/types/ModuleType";
-import { useEffect, useState } from "react";
-import { useParams } from "react-router";
+
+import { useCreateModule } from "module_page/hooks";
+import { useGetModuleDetails } from "module_page/hooks";
+import { useModuleStore } from "module_page/store";
+
+import { ModulePayload } from "module_page/types";
 import { SaveLoadingType, StatusType } from "shared/lib/types";
+
+import { useParams } from "react-router";
+import { useEffect, useState } from "react";
 
 const ModuleEditPage = () => {
   const [form] = useForm<ModulePayload>();

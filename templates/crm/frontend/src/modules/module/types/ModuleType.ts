@@ -1,4 +1,4 @@
-import { ListType } from "shared/lib/types/ListType";
+import { ListType } from "shared/lib/types";
 
 export interface ModuleList extends ListType {
   results: ModuleItem[];
