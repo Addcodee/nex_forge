@@ -7,8 +7,12 @@ type Props = {
 const reactQueryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      retry: 1,
-      retryDelay: 500,
+      staleTime: 5 * 60 * 1000,
+      gcTime: 30 * 60 * 1000,
+
+      refetchOnWindowFocus: false,
+      refetchOnReconnect: false,
+      refetchOnMount: false,
     },
   },
 });

@@ -1,12 +1,10 @@
 import "reflect-metadata";
-import { BaseApi } from "shared/lib/api/BaseApi";
+import { BaseApi } from "shared/lib/api";
 import { container } from "tsyringe";
 import { AxiosError } from "axios";
-import ErrorMessages from "shared/lib/consts/errors";
-import { emailRegex } from "shared/lib/consts/regex";
-import { ResponseType, StatusType } from "shared/lib/types/StatusType";
-import { Tokens } from "shared/lib/types/Tokens";
-import { LoginForm } from "auth/types/LoginForm";
+import { ErrorMessages, emailRegex } from "shared/lib/consts";
+import { ResponseType, StatusType, Tokens } from "shared/lib/types";
+import { LoginForm } from "auth/types";
 
 export class AuthService extends BaseApi {
   constructor() {
