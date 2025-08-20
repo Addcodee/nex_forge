@@ -3,6 +3,7 @@ import {
   ModuleDetails,
   ModuleList,
   ModulePayload,
+  ModuleSearchType,
   ModuleSortType,
 } from "module/types";
 import "reflect-metadata";
@@ -23,7 +24,8 @@ export class ModuleService extends PrivateApi {
       sort: ModuleSortType;
       order: OrderingType;
     };
-    search?: string;
+    search?: ModuleSearchType;
+    pageSize?: number;
   }): Promise<ResponseType<ModuleList>> {
     try {
       // Собираем параметры запроса только если они заданы
@@ -33,17 +35,25 @@ export class ModuleService extends PrivateApi {
         params.push(`page=${options.page}`);
       }
 
-      if (options.sort?.sort !== undefined) {
-        params.push(`sort=${options.sort.sort}`);
-      }
-
       if (options.sort?.order !== undefined) {
-        params.push(`order=${options.sort.order}`);
+        params.push(
+          `order_by=${options.sort.order === OrderingType.ASC ? "" : "-"}${
+            options.sort.sort
+          }`
+        );
       }
 
       if (options.search) {
         // Кодирование строки поиска для корректной передачи в URL
-        params.push(`search=${encodeURIComponent(options.search)}`);
+        const searchFields = Object.entries(options.search)
+          .filter(([, value]) => value !== undefined)
+          .map(([key, value]) => `${key}=${encodeURIComponent(value)}`)
+          .join("&");
+        params.push(searchFields);
+      }
+
+      if (options.pageSize !== undefined) {
+        params.push(`size=${options.pageSize}`);
       }
 
       // Формируем итоговую строку запроса (если есть параметры)
@@ -55,11 +65,28 @@ export class ModuleService extends PrivateApi {
       return {
         status: StatusType.SUCCESS,
         data: {
-          count: 1,
+          count: 22,
           results: [
-            { id: "unique-id-1", title: "Example Title 1" },
-            { id: "unique-id-2", title: "Example Title 2" },
-            { id: "unique-id-3", title: "Example Title 3" },
+            {
+              id: "unique-id-1",
+              title: "Example Title 1",
+              description: "Example Description 1",
+            },
+            {
+              id: "unique-id-2",
+              title: "Example Title 2",
+              description: "Example Description 1",
+            },
+            {
+              id: "unique-id-3",
+              title: "Example Title 3",
+              description: "Example Description 1",
+            },
+            {
+              id: "unique-id-4",
+              title: "Example Title 4",
+              description: "Example Description 1",
+            },
           ],
         },
       };

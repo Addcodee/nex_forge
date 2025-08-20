@@ -1,6 +1,5 @@
 import LoginPage from "auth/pages";
 import ModulePage from "module/pages";
-import ModulePageV2 from "module-v2/pages";
 import GettingStartedPage from "gettingStarted/pages";
 import {
   ModuleCreatePage,
@@ -19,7 +18,6 @@ interface IRoutes extends IRoute {
 
 const INIT_ROUTES: IRoutes[] = [
   { path: "/module", element: <ModulePage /> },
-  { path: "/module-v2", element: <ModulePageV2 /> },
   { path: "/getting-started", element: <GettingStartedPage /> },
   {
     path: "/module/list",

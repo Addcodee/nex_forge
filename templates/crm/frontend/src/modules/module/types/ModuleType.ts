@@ -7,6 +7,7 @@ export interface ModuleList extends ListType {
 export interface ModuleItem {
   id: string;
   title: string;
+  description: string;
 }
 
 export interface ModuleDetails {
@@ -22,3 +23,7 @@ export enum ModuleSortType {
   CREATED_AT = "created_at",
   TITLE = "title",
 }
+
+export type ModuleSearchType = {
+  title: string;
+};

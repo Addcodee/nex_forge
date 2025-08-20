@@ -74,7 +74,7 @@ const ModuleDetails = ({ open, handleClose, id }: Props) => {
         <div className="flex flex-col gap-4">
           <div className="flex justify-between items-center">
             <h3 className="text-[24px] font-bold">
-              {isEditing ? "Редактирование " : ""}Module
+              {isEditing ? "Редактирование " : ""}
             </h3>
             <div className="flex gap-1">
               <DeleteButton

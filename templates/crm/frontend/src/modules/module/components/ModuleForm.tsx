@@ -1,4 +1,5 @@
 import { Button, Form, FormInstance, Input } from "antd";
+import Select from "components/select";
 import { ModulePayload } from "module/types";
 import { useEffect } from "react";
 
@@ -46,6 +47,10 @@ const ModuleForm = ({ loading, handleSubmit, handleClose, values }: Props) => {
         rules={[{ required: true, message: "Введите заголовок" }]}
       >
         <Input placeholder="Заголовок" />
+      </Form.Item>
+
+      <Form.Item name="description">
+        <Select refetcher={() => {}} placeholder="Описание" />
       </Form.Item>
 
       <div className="flex flex-col gap-1">
