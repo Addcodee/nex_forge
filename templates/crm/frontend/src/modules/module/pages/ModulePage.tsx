@@ -106,8 +106,11 @@ const ModulePage = () => {
     },
   };
 
-  const handleFilterChange = (value: string) => {
-    setSearch((prev) => ({ ...prev, title: value }));
+  const handleFilterChange = (
+    value: string,
+    fieldName: keyof ModuleSearchType
+  ) => {
+    setSearch((prev) => ({ ...prev, [fieldName]: value }));
     setPage(1);
   };
 
@@ -175,6 +178,7 @@ const ModulePage = () => {
             </div>
 
             <Select
+              maxTagCount={2}
               label="Показать столбцы:"
               options={allColumns.map((item) => ({
                 label: item.title as string,
@@ -205,12 +209,9 @@ const ModulePage = () => {
           {showFilters && (
             <div className="grid grid-cols-3 gap-2 mt-[20px]">
               <Input
-                id="module-title"
-                name="title"
                 label="Заголовок"
                 value={search.title}
-                onChange={(e) => handleFilterChange(e.target.value)}
-                placeholder="Заголовок"
+                onChange={(e) => handleFilterChange(e.target.value, "title")}
               />
             </div>
           )}

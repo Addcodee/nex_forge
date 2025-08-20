@@ -5,12 +5,13 @@ interface Props extends InputProps {
   label?: string;
 }
 
-const Input = ({ label, className, name, id, ...rest }: Props) => {
+const Input = ({ label, className, name, id, placeholder, ...rest }: Props) => {
   return (
     <Label htmlFor={id} label={label}>
       <AntInput
         id={id}
         name={name}
+        placeholder={placeholder ? placeholder : label}
         className={`!w-full ${className}`}
         {...rest}
       />
