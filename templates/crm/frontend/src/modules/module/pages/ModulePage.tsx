@@ -45,7 +45,7 @@ const ModulePage = () => {
   });
   const [debouncedSearch] = useDebounce(search, 500);
   const [pageSize, setPageSize] = useSearchState<number>("pageSize", 15);
-  const { isPending, refetch } = useGetModuleList({
+  const { isPending, refetch, isRefetching } = useGetModuleList({
     page,
     sort,
     search: debouncedSearch,
@@ -124,7 +124,10 @@ const ModulePage = () => {
               <h2 className="text-[32px] font-medium">Module</h2>
               <div className="flex gap-2">
                 <div className="flex items-center gap-2">
-                  <RefetchButton refetcher={refetch} />
+                  <RefetchButton
+                    refetcher={refetch}
+                    loading={isPending || isRefetching}
+                  />
                   <Button
                     type="primary"
                     onClick={() => setIsCreating(true)}
@@ -236,7 +239,7 @@ const ModulePage = () => {
               page: "",
             },
           }}
-          loading={isPending}
+          loading={isPending || isRefetching}
           columns={columns}
           dataSource={moduleList.results}
           scroll={{ x: 1024 }}
