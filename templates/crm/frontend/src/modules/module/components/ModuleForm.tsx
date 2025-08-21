@@ -1,6 +1,6 @@
 import { Button, Form, FormInstance, Input } from "antd";
 import Select from "components/select";
-import { ModulePayload } from "module/types";
+import { ModuleDetails, ModulePayload } from "module/types";
 import { useEffect } from "react";
 
 type Props = {
@@ -10,7 +10,7 @@ type Props = {
   ) => void;
   loading: boolean;
   handleClose: () => void;
-  values?: ModulePayload | null;
+  values?: ModuleDetails | null;
 };
 
 const ModuleForm = ({ loading, handleSubmit, handleClose, values }: Props) => {
